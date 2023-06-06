@@ -15,8 +15,8 @@ def write_todos(todos_arg, filepath=FILEPATH):
         file_local.writelines(todos_arg)
 
 
-# just for testing purposes when I want run directly from this file, if i run from main.py it will nto be execuret
+# just for testing purposes when I want run directly from this file, if i run from cli.py it will nto be execuret
 # __main__ means that I run code from this file
-if __name__ == "__main__":
+if __name__ == "__cli__":
     print("test")
     print(get_todos())

@@ -11,11 +11,16 @@ st.title("My Todo App")
 st.subheader("This is mydo app")
 st.write("This is app for .....")
 
-for todo in todos:
-    st.checkbox(todo)
+for index, todo in enumerate(todos):
+    checkbox = st.checkbox(todo, key=todo)
+    if checkbox:
+        todos.pop(index)
+        functions.write_todos(todos)
+        del st.session_state[todo]
+        st.experimental_rerun()
 
-st.text_input(label="", placeholder="Add new todo...",
+st.text_input(label="Add new todo", label_visibility="hidden", placeholder="Add new todo...",
               on_change=add_todo, key='new_todo')
 
 # just for testing to see data
-st.session_state
+# st.session_state
